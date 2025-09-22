@@ -5,11 +5,9 @@ import {
   Wrench, 
   Paintbrush, 
   Zap, 
-  Droplets, 
   Sparkles, 
   Hammer, 
-  Car, 
-  Leaf,
+  Car,
   ArrowRight,
   Star
 } from "lucide-react";
@@ -22,7 +20,6 @@ const services = [
     price: "From $45",
     rating: 4.9,
     bookings: "12k+",
-    isEco: true,
   },
   {
     icon: Zap,
@@ -31,7 +28,6 @@ const services = [
     price: "From $60",
     rating: 4.8,
     bookings: "8k+",
-    isEco: false,
   },
   {
     icon: Paintbrush,
@@ -40,7 +36,6 @@ const services = [
     price: "From $120",
     rating: 4.9,
     bookings: "15k+",
-    isEco: true,
   },
   {
     icon: Sparkles,
@@ -49,7 +44,6 @@ const services = [
     price: "From $80",
     rating: 4.7,
     bookings: "25k+",
-    isEco: true,
   },
   {
     icon: Hammer,
@@ -58,7 +52,6 @@ const services = [
     price: "From $35",
     rating: 4.6,
     bookings: "18k+",
-    isEco: false,
   },
   {
     icon: Car,
@@ -67,20 +60,19 @@ const services = [
     price: "From $200",
     rating: 4.8,
     bookings: "5k+",
-    isEco: false,
   },
 ];
 
 const ServicesGrid = () => {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-muted/30">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl font-light text-foreground mb-4">
             Popular Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Choose from our wide range of professional services, all backed by our satisfaction guarantee.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Choose from our wide range of professional services
           </p>
         </div>
 
@@ -88,46 +80,38 @@ const ServicesGrid = () => {
           {services.map((service) => {
             const IconComponent = service.icon;
             return (
-              <Card key={service.title} className="group hover:shadow-lg transition-all duration-300 bg-gradient-card border-0">
+              <Card key={service.title} className="group hover:shadow-sm transition-all duration-200 bg-card border border-border">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <IconComponent className="h-6 w-6" />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {service.isEco && (
-                        <Badge variant="secondary" className="bg-accent/20 text-accent-foreground">
-                          <Leaf className="h-3 w-3 mr-1" />
-                          Eco
-                        </Badge>
-                      )}
+                    <div className="bg-muted p-3 rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <IconComponent className="h-5 w-5" />
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                  <h3 className="text-lg font-medium text-foreground mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                     {service.description}
                   </p>
                   
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-lg font-semibold text-primary">
+                    <span className="text-lg font-medium text-foreground">
                       {service.price}
                     </span>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                    <div className="flex items-center space-x-2 text-xs text-muted-foreground">
                       <div className="flex items-center">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400 mr-1" />
+                        <Star className="h-3 w-3 fill-yellow-400 text-yellow-400 mr-1" />
                         {service.rating}
                       </div>
                       <span>•</span>
-                      <span>{service.bookings} bookings</span>
+                      <span>{service.bookings}</span>
                     </div>
                   </div>
                   
-                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Button variant="outline" size="sm" className="w-full">
                     Book Now
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="h-3 w-3 ml-2" />
                   </Button>
                 </CardContent>
               </Card>
@@ -136,9 +120,8 @@ const ServicesGrid = () => {
         </div>
 
         <div className="text-center">
-          <Button variant="accent" size="lg">
+          <Button variant="default">
             View All Services
-            <ArrowRight className="h-4 w-4 ml-2" />
           </Button>
         </div>
       </div>
